@@ -2,6 +2,8 @@
 
 Bash solutions to CTF challenges (no snek)
 
+All my explanations are contained in the `script.sh` files.
+
 # Why
 
 To practice [radare2](https://github.com/radareorg/radare2) for Binex/ROP without having to rely on python abstractions
@@ -21,7 +23,7 @@ r2 -q \ # close after running (for scripting)
 	-AA \ # analyze
 	-c \ # run command (eg afl)
 	-e \ # set configuration eval variable
-		[scr.color=false] # Get rid of pesky invisible escape sequences
+	 [scr.color=false] \ # Get rid of pesky invisible escape sequences
 ```
 
 ## Debugging
