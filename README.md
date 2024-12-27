@@ -1,10 +1,33 @@
 # What
 
-bash solutions to CTF challenges
+Bash solutions to CTF challenges (no snek)
 
 # Why
 
-1. In order to become the next hokage, I must first become 1337 h4x0r.
-2. It's called bash because it makes me wanna bash my head against a wall, so
-   forcing myself to use it makes me a better h4x0r. No python allowed!
-3. Practice [radare2](https://github.com/radareorg/radare2) for ROP.
+To practice [radare2](https://github.com/radareorg/radare2) for Binex/ROP without having to rely on python abstractions
+that do most of the work for us.
+
+# Radare2 Notes
+
+## Flags
+
+When using `i` to get info from the opened file, such as symbols,
+sections, or strings in data sections, remember to turn off color
+because the output may contain invisible escape sequences that mess up
+the exploit.
+
+```bash
+r2 -q \ # close after running (for scripting)
+	-AA \ # analyze
+	-c \ # run command (eg afl)
+	-e \ # set configuration eval variable
+		[scr.color=false] # Get rid of pesky invisible escape sequences
+```
+
+## Debugging
+
+- `dc?` : continue until
+- `ds?` : step 
+	- `ds` : step one instruction in asm
+	- `dsl` : step one source line
+- `ood?` : reopen file in debug mode
